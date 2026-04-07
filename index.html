@@ -283,7 +283,7 @@ function drawFX(){
 
   /* Afterburner positions — left side of image (tail end for top-view nose-right) */
   /* Adjust ABX if your PNG nose points left: change to W*0.88 */
-  const ABX  = W * 0.3;   // X of both nozzles
+  const ABX  = W * 0.25;   // X of both nozzles
   const ABY1 = H*0.44; // left engine  (upper nozzle in top-view)
   const ABY2 = H*0.56; // right engine (lower nozzle in top-view)
 
@@ -322,14 +322,12 @@ function drawFX(){
   // Positions for top-view, nose pointing RIGHT:
   // Red = port (left) wingtip  → upper-left area of image
   // Green = starboard wingtip  → lower-left area
-  // White = tail strobe        → leftmost point (behind engines)
+
 
   const lights = [
     // [x_frac, y_frac, r, g, b, pulseFn]
   [0.33, 0.20, 255, 30, 30, t=>0.5+0.5*Math.sin(t*3.5)],   // ala sinistra
   [0.33, 0.80, 30, 255, 80, t=>0.5+0.5*Math.sin(t*3.5+0.3)], // ala destra
-  [0.08, 0.50, 255, 255, 255, t=>Math.pow(Math.abs(Math.sin(t*4)),8)], // coda
-  [0.94, 0.50, 255, 255, 255, t=>Math.pow(Math.abs(Math.sin(t*4+0.5)),8)], // muso
 ];
   lights.forEach(([xf,yf,r,g,b,pulseFn])=>{
     const lx=W*xf, ly=H*yf;
