@@ -1,0 +1,15 @@
+name: Deploy to GitHub Pages
+
+on:
+ push:
+  branches: ["main"]
+
+jobs:
+ deploy:
+  runs-on: ubuntu_latest
+  steps:
+    - name: Clona repo
+      uses: actions/checkout@v3
+
+    - name: Deploy su Pages
+      uses: actions/deploy-pages@v2
